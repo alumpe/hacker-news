@@ -1,6 +1,11 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
 
-@import "./font-face.scss";
+@use "./css-reset";
+@use "./font-face.scss";
+
+:root {
+  color-scheme: dark;
+}
 
 body {
   font-family: "Merriweather";
