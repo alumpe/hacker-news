@@ -1,3 +1,7 @@
+<script>
+  import "../styles/app.scss";
+</script>
+
 <header>
   <nav />
 </header>
