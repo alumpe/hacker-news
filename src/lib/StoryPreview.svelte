@@ -4,22 +4,22 @@
 
   export let story: Item;
 
-  $: url = story.url ?? `/item?id=${story.id}`;
+  $: url = story.url ?? `/item/${story.id}`;
   $: hostname = story.url ? new URL(story.url).hostname : undefined;
 </script>
 
-<tr class="row">
+<tr>
   <td style:text-align="right">{story.score}</td>
   <td>
     <div class="story-info">
       <div>
-        <a href={url}>{story.title}</a>
+        <strong><a href={url} class="title">{story.title}</a></strong>
         {#if hostname}
           <small>({hostname})</small>
         {/if}
       </div>
 
-      <div>
+      <div class="info-bar">
         {#if story.by}
           <small>by {story.by}</small> |
         {/if}
@@ -35,13 +35,23 @@
 </tr>
 
 <style lang="scss">
+  tr {
+    padding-bottom: 0.5rem;
+    color: rgb(118, 123, 143);
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .title {
+    &:not(:visited) {
+      color: rgb(121, 127, 204);
+    }
+  }
   .story-info {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-  }
-
-  .row {
-    padding-bottom: 0.5rem;
   }
 </style>

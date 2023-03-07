@@ -2,6 +2,7 @@
 
 @use "./css-reset";
 @use "./font-face.scss";
+@import "./variables.scss";
 
 :root {
   color-scheme: dark;
@@ -9,4 +10,9 @@
 
 body {
   font-family: "Merriweather";
+  color: $text-light;
+}
+
+a {
+  color: inherit;
 }
