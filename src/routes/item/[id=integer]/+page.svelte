@@ -9,7 +9,7 @@
 <h1>{data.item.title}</h1>
 
 {#if story.text}
-  <p>{story.text}</p>
+  <div>{@html story.text}</div>
 {/if}
 
 {#if commentsPromises}
@@ -17,7 +17,9 @@
     {#await commentsPromise}
       Loading...
     {:then comment}
-      <p>{@html comment.text}</p>
+      {#if !comment.dead}
+        <p>{@html comment.text}</p>
+      {/if}
     {:catch error}
       {error.message}
     {/await}
