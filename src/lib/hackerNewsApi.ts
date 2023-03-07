@@ -15,7 +15,7 @@ const itemSchema = z.object({
     ])
   ),
   by: z.optional(z.string()),
-  time: z.optional(z.number()),
+  time: z.number(),
   text: z.optional(z.string()),
   dead: z.optional(z.boolean()),
   parent: z.optional(z.number()),

@@ -12,12 +12,17 @@
   });
 </script>
 
-<ul>
+<table>
   {#each $storyStore as story}
-    <li>
-      <StoryPreview {story} />
-    </li>
+    <StoryPreview {story} />
   {/each}
-</ul>
+</table>
 
 <Pagination />
+
+<style lang="scss">
+  table {
+    border-collapse: separate;
+    border-spacing: 1rem 0.6rem;
+  }
+</style>
