@@ -1,6 +1,12 @@
 <script lang="ts">
-  export let url: string;
-  export let title: string | undefined;
+  import { maxScore, storyStore } from "$lib/stores/storyStore";
+  import type { Item } from "./hackerNewsApi";
+
+  export let story: Item;
+
+  $: url = story.url ?? `/item?id=${story.id}`;
 </script>
 
-<a href={url} class="link" style:display="block">{title}</a>
+<div>
+  <span>{$maxScore}</span>, <span>{story.score}</span><a href={url}>{story.title}</a>
+</div>

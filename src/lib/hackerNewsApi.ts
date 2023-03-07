@@ -30,12 +30,16 @@ const itemSchema = z.object({
 
 export type Item = z.infer<typeof itemSchema>;
 
-export const getTopstories = async () => {
+export const getTopstories = async (page = 1) => {
   const result = await (await fetch(baseUrl + "/topstories.json")).json();
 
   const parsedResult = z.array(z.number()).parse(result);
 
-  return parsedResult;
+  const atOnce = 30;
+  const start = 0 + (page - 1) * atOnce;
+  const end = atOnce + (page - 1) * atOnce;
+
+  return parsedResult.slice(start, end);
 };
 
 export const getItem = async (id: Item["id"]) => {
