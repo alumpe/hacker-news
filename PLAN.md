@@ -19,7 +19,7 @@ The first version is desktop-only. It should support normal browser keyboard con
 
 - Use the official Hacker News API.
 - Show the Top Stories feed only.
-- Load the first 20 stories, then append 20 more each time the user selects **Load more**.
+- Load the first 20 stories, then automatically append 20 more as the reader approaches the end of the list.
 - Fetch the latest feed and discussion data when the browser page reloads.
 - Do not refresh or reorder the feed automatically while the page remains open.
 
@@ -35,8 +35,8 @@ The first version is desktop-only. It should support normal browser keyboard con
 
 - Use a restrained editorial style focused on readability.
 - Keep the default appearance of semantic HTML elements where practical.
-- Use Tailwind CSS only for necessary layout and small visual refinements.
-- Use Atkinson Hyperlegible as the primary font.
+- Use component-scoped CSS for layout and visual styling.
+- Use Atkinson Hyperlegible Next as the primary font.
 - Follow the operating system's light or dark preference through `prefers-color-scheme`.
 - Do not include a theme toggle.
 
@@ -59,7 +59,7 @@ Each story entry should show:
 
 Selecting the entry should open the discussion in the right column rather than navigate directly to the linked article.
 
-Mark a story as viewed as soon as it is selected. Store viewed-story IDs locally and retain them until the user clears them with a **Reset viewed stories** action. Do not persist selected stories, comment collapse state, or scroll positions between browser visits.
+Use the browser's visited-link styling to deemphasize story titles after selection. Do not maintain separate viewed-story state. Do not persist selected stories, comment collapse state, or scroll positions between browser visits.
 
 ## Selected story
 
@@ -94,8 +94,8 @@ For text-only submissions such as Ask HN posts, show the full submission text ab
 ## Loading and errors
 
 - Keep successfully loaded content visible when part of an API request fails.
-- Show errors next to the failed story, comment, or branch.
-- Provide an inline retry action for the failed content instead of replacing the whole page or column with an error.
+- Show a short error next to the failed story, comment, or branch.
+- Rely on a browser reload rather than adding inline retry controls.
 
 ## Implementation constraints
 

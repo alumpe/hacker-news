@@ -1,1 +1,89 @@
-@import 'tailwindcss';
+:root {
+	font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+	color-scheme: light;
+	--accent-color: #c2410c;
+	--border-color: #ded8cd;
+	--border-strong-color: #bdb5a8;
+	--code-background: #f1ede5;
+	--discussion-background: #f8f5ef;
+	--error-color: #b42318;
+	--header-background: #f1ece2;
+	--link-color: #9a3412;
+	--muted-color: #655f57;
+	--placeholder-color: #d8d0c4;
+	--surface-color: #fffdf8;
+	--surface-hover: #f7f1e7;
+	--surface-raised: #f4efe6;
+	--surface-selected: #f5eadb;
+	--text-color: #24211d;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--accent-color: #fb923c;
+		--border-color: #393631;
+		--border-strong-color: #565149;
+		--code-background: #201f1c;
+		--discussion-background: #191816;
+		--error-color: #fda29b;
+		--header-background: #201e1a;
+		--link-color: #fdba74;
+		--muted-color: #aaa39a;
+		--placeholder-color: #38342f;
+		--surface-color: #171614;
+		--surface-hover: #23211d;
+		--surface-raised: #1e1c19;
+		--surface-selected: #2b241c;
+		--text-color: #eee9e1;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--surface-color);
+	color: var(--text-color);
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+[tabindex='0']:focus-visible {
+	outline: 0.15rem solid var(--accent-color);
+	outline-offset: 0.15rem;
+}
+
+a {
+	color: var(--link-color);
+	text-decoration-thickness: 0.08em;
+	text-underline-offset: 0.15em;
+}
+
+a:hover {
+	text-decoration-thickness: 0.13em;
+}
+
+::selection {
+	background: color-mix(in srgb, var(--accent-color) 32%, transparent);
+}
